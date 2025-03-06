@@ -7,18 +7,27 @@
  <body>
   <a href="javascript:void(0);" id="btn" >카카오 링크보내기</a>
   <!-- Kakao API -->
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" integrity="sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka" crossorigin="anonymous"></script>
- <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.js" integrity="sha384-ecvGBB5fS6qIZVCfT9oUu3buDu7xIsXT0aEa2f/b+rBxNYWi3b2hksr9Jfi/jn8m" crossorigin="anonymous"></script>
-  <script src="https://t1.kakaocdn.net/kakao_js_sdk/v1/kakao.min.js"></script>
-  <script>
-    Kakao.init('578b1c5ff75c6e771531729dc3462bcf'); //6번 항목에서 발급 받았던 javascript key를 여기에 넣는다.
- 
-     $("#btn").click(function(e) { //jquery를 사용한다 가정
-  e.preventDefault();   //이벤트 버블링 prevent
-  Kakao.Link.sendCustom({
-    templateId: 118053       // 15번 항목에서 확인하였던 이벤트번호 등록 
-  });
- });
-  </script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js"
+  integrity="sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('dd14fad4a343a08f3e1d5bbc506b6b1b'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
+
+<a id="kakaotalk-sharing-btn" href="javascript:shareMessage()">
+  <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+    alt="카카오톡 공유 보내기 버튼" />
+</a>
+
+<script>
+  function shareMessage() {
+    Kakao.Share.sendCustom({
+      templateId: 96979,
+      templateArgs: {
+        title: '제2회 탱고 커뮤니티 행사',
+        description: '사전신청 이벤트 진행중',
+      },
+    });
+  }
+</script>
  </body>
 </html>
