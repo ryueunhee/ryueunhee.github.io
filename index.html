@@ -1,24 +1,46 @@
-<!doctype html>
-<html lang="ko">
- <head>
-  <meta charset="UTF-8">
-  <title>카카오 메시지템플릿빌더를 이용한 링크보내기</title>
- </head>
- <body>
-  <a href="javascript:void(0);" id="btn" >카카오 링크보내기</a>
-  <!-- Kakao API -->
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" integrity="sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka" crossorigin="anonymous"></script>
- <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.js" integrity="sha384-ecvGBB5fS6qIZVCfT9oUu3buDu7xIsXT0aEa2f/b+rBxNYWi3b2hksr9Jfi/jn8m" crossorigin="anonymous"></script>
-  <script src="https://t1.kakaocdn.net/kakao_js_sdk/v1/kakao.min.js"></script>
-  <script>
-    Kakao.init('578b1c5ff75c6e771531729dc3462bcf'); //6번 항목에서 발급 받았던 javascript key를 여기에 넣는다.
- 
-     $("#btn").click(function(e) { //jquery를 사용한다 가정
-  e.preventDefault();   //이벤트 버블링 prevent
-  Kakao.Link.sendCustom({
-    templateId: 118053       // 15번 항목에서 확인하였던 이벤트번호 등록 
-  });
- });
-  </script>
- </body>
+<html>
+<head>
+<title>카카오톡 메세지 보내기</title>
+<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<body>
+<p><strong>카카오톡 메세지 보내기</strong> </p>
+<a id="kakao-link-btn" href="javascript:sendLink()">
+  <img
+    src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+  />
+</a>
+<script type="text/javascript">
+ Kakao.init('dd14fad4a343a08f3e1d5bbc506b6b1b');
+  function sendLink() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '류은희 블로그',
+        description: '안녕하세요.제 블로그를 소개합니다.',
+        imageUrl:
+          'https://blogfiles.pstatic.net/MjAyMDA4MTNfMTEw/MDAxNTk3MzA2MzkxMTE2.oXWTl_7P0_ehdsazfa-Ud-3_myA8ijrTsGpIDQwET6wg.R-qD8KyeuBbX8wvsd2gUIKDdszoH3deMARTmr_hcpKgg.PNG.reh0714/OGQ_%EC%95%84%EA%B8%B0%ED%8C%A1%EB%8B%A4_2020-07-17.png?type=w2',
+        link: {
+          mobileWebUrl: 'https://blog.naver.com/reh0714',
+          webUrl: 'https://blog.naver.com/reh0714',
+        },
+      },
+      social: {
+        likeCount: 2025, //99999
+        commentCount: 03, //99999
+        sharedCount: 05, //99999
+      },
+      buttons: [
+        {
+          title: '자세히 보기',
+          link: {
+            mobileWebUrl: 'https://blog.naver.com/reh0714',
+            webUrl: 'https://blog.naver.com/reh0714',
+          },
+        },
+      ],
+    })
+  }
+</script>
+  </body>
 </html>
