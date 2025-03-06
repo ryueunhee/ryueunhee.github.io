@@ -1,46 +1,60 @@
 <html>
 <head>
-<title>카카오톡 메세지 보내기</title>
-<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>카카오 링크 보내기</title>
+<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-<p><strong>카카오톡 메세지 보내기</strong> </p>
-<a id="kakao-link-btn" href="javascript:sendLink()">
-  <img
-    src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
-  />
-</a>
+    <input type="button" onClick="sendLinkCustom();" value="sendCustom"/>
+    <input type="button" onClick="sendLinkDefault();" value="sendDefault"/>
+
 <script type="text/javascript">
- Kakao.init('dd14fad4a343a08f3e1d5bbc506b6b1b');
-  function sendLink() {
+    function sendLinkCustom() { //CASE1. '사용자 정의 메세지' 보내기
+        Kakao.init('dd14fad4a343a08f3e1d5bbc506b6b1b'); //문자열 형태로 입력
+        Kakao.Link.sendCustom({
+            templateId: {96979} //숫자 형태로 입력
+        });
+    }
+</script>
+
+<script>
+  function sendLinkDefault() { //CASE2. '기본 메세지' 보내기
+    Kakao.init('dd14fad4a343a08f3e1d5bbc506b6b1b'); //문자열 형태로 입력
     Kakao.Link.sendDefault({
       objectType: 'feed',
       content: {
-        title: '류은희 블로그',
-        description: '안녕하세요.제 블로그를 소개합니다.',
+        title: '딸기 치즈 케익',
+        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
         imageUrl:
-          'https://blogfiles.pstatic.net/MjAyMDA4MTNfMTEw/MDAxNTk3MzA2MzkxMTE2.oXWTl_7P0_ehdsazfa-Ud-3_myA8ijrTsGpIDQwET6wg.R-qD8KyeuBbX8wvsd2gUIKDdszoH3deMARTmr_hcpKgg.PNG.reh0714/OGQ_%EC%95%84%EA%B8%B0%ED%8C%A1%EB%8B%A4_2020-07-17.png?type=w2',
+          'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
         link: {
-          mobileWebUrl: 'https://blog.naver.com/reh0714',
-          webUrl: 'https://blog.naver.com/reh0714',
+          mobileWebUrl: 'https://developers.kakao.com',
+          webUrl: 'https://developers.kakao.com',
         },
       },
       social: {
-        likeCount: 2025, //99999
-        commentCount: 03, //99999
-        sharedCount: 05, //99999
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845,
       },
       buttons: [
         {
-          title: '자세히 보기',
+          title: '웹으로 보기',
           link: {
-            mobileWebUrl: 'https://blog.naver.com/reh0714',
-            webUrl: 'https://blog.naver.com/reh0714',
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+        {
+          title: '앱으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
           },
         },
       ],
     })
   }
 </script>
-  </body>
+</body>
 </html>
