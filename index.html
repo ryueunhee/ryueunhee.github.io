@@ -1,60 +1,24 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>카카오 링크 보내기</title>
-<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-</head>
-<body>
-    <input type="button" onClick="sendLinkCustom();" value="sendCustom"/>
-    <input type="button" onClick="sendLinkDefault();" value="sendDefault"/>
-
-<script type="text/javascript">
-    function sendLinkCustom() { //CASE1. '사용자 정의 메세지' 보내기
-        Kakao.init('dd14fad4a343a08f3e1d5bbc506b6b1b'); //문자열 형태로 입력
-        Kakao.Link.sendCustom({
-            templateId: {96979} //숫자 형태로 입력
-        });
-    }
-</script>
-
-<script>
-  function sendLinkDefault() { //CASE2. '기본 메세지' 보내기
-    Kakao.init('dd14fad4a343a08f3e1d5bbc506b6b1b'); //문자열 형태로 입력
-    Kakao.Link.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: '딸기 치즈 케익',
-        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-        imageUrl:
-          'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-        link: {
-          mobileWebUrl: 'https://developers.kakao.com',
-          webUrl: 'https://developers.kakao.com',
-        },
-      },
-      social: {
-        likeCount: 286,
-        commentCount: 45,
-        sharedCount: 845,
-      },
-      buttons: [
-        {
-          title: '웹으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
-          },
-        },
-        {
-          title: '앱으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
-          },
-        },
-      ],
-    })
-  }
-</script>
-</body>
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>카카오 메시지템플릿빌더를 이용한 링크보내기</title>
+ </head>
+ <body>
+  <a href="javascript:void(0);" id="btn" >카카오 링크보내기</a>
+  <!-- Kakao API -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" integrity="sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka" crossorigin="anonymous"></script>
+ <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.js" integrity="sha384-ecvGBB5fS6qIZVCfT9oUu3buDu7xIsXT0aEa2f/b+rBxNYWi3b2hksr9Jfi/jn8m" crossorigin="anonymous"></script>
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/v1/kakao.min.js"></script>
+  <script>
+    Kakao.init('578b1c5ff75c6e771531729dc3462bcf'); //6번 항목에서 발급 받았던 javascript key를 여기에 넣는다.
+ 
+     $("#btn").click(function(e) { //jquery를 사용한다 가정
+  e.preventDefault();   //이벤트 버블링 prevent
+  Kakao.Link.sendCustom({
+    templateId: 118053       // 15번 항목에서 확인하였던 이벤트번호 등록 
+  });
+ });
+  </script>
+ </body>
 </html>
