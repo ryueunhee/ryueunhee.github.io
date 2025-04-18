@@ -90,17 +90,17 @@
             width: 100%;
         }
         .back1 {
-            height: 900px;
+            height: 420px;
             background-size: cover;
     }
         .back2 {
-            font-size: 45px;
+            font-size: 18px;
         }
         .info2 div font{
-            font-size: 48px;
+            font-size: 18px;
         }
     .sub1 {
-        width: 200px;
-        height: 160px;
+        width: 80px;
+        height: 60px;
     }
 }    
